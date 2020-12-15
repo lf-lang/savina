@@ -1,3 +1,11 @@
+This Fork
+=========
+
+This is a fork of the original Savina Benchmark suite (see below). This fork
+extends the benchmark runner by a CLI option (`-workers`) for specifying the
+precise number of workers for processing the benchmark workload.
+
+
 Savina
 ======
 
