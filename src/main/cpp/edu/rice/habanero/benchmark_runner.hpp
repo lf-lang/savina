@@ -28,12 +28,22 @@ public:
     using namespace caf;
     using namespace std;
     parse_args(argc, argv);
-    benchmark.initialize(cfg_.args_remainder);
+
+    auto threads = get<unsigned>(cfg_, "scheduler.max-threads");
+    auto& remainder = cfg_.remainder;
+    stringstream ss;
+    ss << "--scheduler.max-threads=" << threads;
+    remainder.push_back(ss.str());
+    auto message = message_builder{remainder.begin(), remainder.end()}
+                   .move_to_message();
+
+    benchmark.initialize(message);
     if (cfg_.simple_exectuion_request) {
       benchmark.run_iteration();
       return;
     }
     cout << "Runtime: " + benchmark.runtime_info() << endl;
+    cout << "Threads: " << threads << endl;
     cout << "Benchmark: " + benchmark.name() << endl;
     cout << "Args: " << endl;
     benchmark.print_arg_info();
