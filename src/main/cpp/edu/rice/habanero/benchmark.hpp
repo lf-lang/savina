@@ -15,7 +15,7 @@ public:
 
   virtual void print_arg_info() const = 0;
 
-  virtual void initialize(caf::message& args) = 0;
+  virtual void initialize(int argc, char** argv) = 0;
 
   virtual void run_iteration() = 0;
 

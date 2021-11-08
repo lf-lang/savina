@@ -34,10 +34,19 @@ public:
     stringstream ss;
     ss << "--scheduler.max-threads=" << threads;
     remainder.push_back(ss.str());
-    auto message = message_builder{remainder.begin(), remainder.end()}
-                   .move_to_message();
 
-    benchmark.initialize(message);
+    int new_argc = remainder.size() + 1;
+    char** new_argv = new char*[remainder.size() + 1];
+    // the binary name is the same
+    new_argv[0] = argv[0];
+    size_t idx{1};
+
+    // copy all remaining arguments
+    for (auto& x : remainder) {
+        new_argv[1] = strdup(x.c_str());
+    }
+
+    benchmark.initialize(argc, argv);
     if (cfg_.simple_exectuion_request) {
       benchmark.run_iteration();
       return;
