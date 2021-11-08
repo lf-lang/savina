@@ -65,11 +65,6 @@
             <version>0.2.12</version>
         </dependency>
         <dependency>
-            <groupId>org.scalaz</groupId>
-            <artifactId>scalaz-concurrent_2.11.0-RC1</artifactId>
-            <version>7.1.0-M6</version>
-        </dependency>
-        <dependency>
             <groupId>net.liftweb</groupId>
             <artifactId>lift-webkit_2.11</artifactId>
             <version>2.6-M4</version>
