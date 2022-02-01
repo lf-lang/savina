@@ -1,7 +1,6 @@
 package edu.rice.habanero.benchmarks.facloc;
 
 import edu.rice.habanero.benchmarks.BenchmarkRunner;
-import edu.rice.habanero.benchmarks.PseudoRandom;
 
 import java.util.*;
 
