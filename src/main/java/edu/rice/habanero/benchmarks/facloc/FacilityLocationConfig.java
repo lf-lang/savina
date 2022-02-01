@@ -21,6 +21,8 @@ public final class FacilityLocationConfig {
     protected static int C = 1;
     protected static boolean debug = false;
 
+    private static Random r = new Random();
+
     protected static void parseArgs(final String[] args) {
         int i = 0;
         while (i < args.length) {
@@ -58,12 +60,11 @@ public final class FacilityLocationConfig {
         System.out.printf(BenchmarkRunner.argOutputFormat, "debug", debug);
     }
 
+
     protected static class Point {
 
-        private static PseudoRandom r = new PseudoRandom();
-
         protected static void setSeed(final long seed) {
-            r = new PseudoRandom(seed);
+            r = new Random(seed);
         }
 
         protected static Point random(final double gridSize) {
