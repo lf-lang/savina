@@ -1,7 +1,6 @@
 package edu.rice.habanero.benchmarks.facloc;
 
 import edu.rice.habanero.benchmarks.BenchmarkRunner;
-import edu.rice.habanero.benchmarks.PseudoRandom;
 
 import java.util.*;
 
@@ -20,6 +19,8 @@ public final class FacilityLocationConfig {
     protected static int N = 40000;
     protected static int C = 1;
     protected static boolean debug = false;
+
+    private static Random r = new Random();
 
     protected static void parseArgs(final String[] args) {
         int i = 0;
@@ -58,12 +59,11 @@ public final class FacilityLocationConfig {
         System.out.printf(BenchmarkRunner.argOutputFormat, "debug", debug);
     }
 
+
     protected static class Point {
 
-        private static PseudoRandom r = new PseudoRandom();
-
         protected static void setSeed(final long seed) {
-            r = new PseudoRandom(seed);
+            r = new Random(seed);
         }
 
         protected static Point random(final double gridSize) {
